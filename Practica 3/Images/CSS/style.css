@@ -1,0 +1,81 @@
+/* style.css - demo rotar y cambiar color */
+
+/* Estilos base */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f5f7fb;
+  margin: 0;
+  padding: 28px;
+  color: #1f2937;
+}
+.page { max-width: 900px; margin: 0 auto; }
+
+h1 { text-align: center; margin-bottom: 18px; }
+
+/* Layout de las tarjetas */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.card { background: white; padding: 14px; border-radius: 10px;
+       box-shadow: 0 6px 18px rgba(15,23,42,0.06); text-align: center; }
+
+/* Imágenes: tamaño y estilo común */
+.img {
+  display: block;
+  margin: 12px auto;
+  width: 220px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 400ms ease, filter 350ms ease; /* transición para transform y filtros */
+  cursor: pointer;
+  transform-origin: center center; /* punto central para rotación */
+}
+
+/* ------------- 1) Imagen que gira (hover) -------------- */
+/* Usamos transform: rotate(...) para rotar la imagen */
+.rotate-img:hover {
+  transform: rotate(360deg) scale(1.03); /* gira 360 grados y hace un leve scale */
+}
+
+/* Si prefieres rotación continua mientras está hover, usa animation:
+.rotate-img:hover { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg);} }
+*/
+
+/* ------------- 2) Imagen que cambia de color (hover) - con filtros -------------- */
+/* Aplicamos un filtro por defecto (ej. gris) y al hover cambiamos el hue y saturación */
+.color-img {
+  filter: grayscale(60%) contrast(0.95) brightness(0.95);
+  transition: filter 350ms ease, transform 300ms ease;
+}
+.color-img:hover {
+  filter: none; /* quita grayscale */
+  /* o usa hue-rotate y saturate para cambiar el color */
+  /* filter: hue-rotate(160deg) saturate(1.2) contrast(1.02); */
+  transform: translateY(-6px); /* pequeño levantamiento */
+}
+
+/* ------------- SVG inline que cambia fill con CSS (muy preciso) ------------- */
+.svg-color {
+  display: block;
+  margin: 12px auto;
+  transition: transform 250ms ease, filter 250ms ease;
+  cursor: pointer;
+}
+.svg-color path {
+  transition: fill 300ms ease;
+  /* color inicial en el 'fill' del path definido en el HTML */
+}
+.svg-color:hover {
+  transform: translateY(-6px);
+  filter: drop-shadow(0 10px 20px rgba(2,6,23,0.08));
+}
+.svg-color:hover path {
+  fill: #ef4444; /* cambia el color del relleno del path al hover */
+}
+
+/* Pie de página pequeño */
+p { margin: 8px 0 0; font-size: 14px; color: #4b5563; }

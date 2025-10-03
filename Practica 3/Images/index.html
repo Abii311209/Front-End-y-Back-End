@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Imágenes: Rotar y Cambiar Color</title>
+
+  <!-- Enlace al CSS (asegúrate que la carpeta se llama "css" o "CSS" según corresponda) -->
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Demo: Imagen que gira y imagen que cambia de color</h1>
+
+    <section class="gallery">
+      <div class="card">
+        <h2>Imagen que gira (hover)</h2>
+        <!-- imagen local para girar -->
+        <img src="rotate.jpg" alt="Imagen que gira" class="img rotate-img">
+        <p>Pasa el cursor sobre la imagen para que gire.</p>
+      </div>
+
+      <div class="card">
+        <h2>Imagen que cambia de color (hover)</h2>
+        <!-- imagen local que cambia de color usando filtros CSS -->
+        <img src="color.jpg" alt="Imagen que cambia de color" class="img color-img">
+        <p>Pasa el cursor sobre la imagen para que cambie su tono/color.</p>
+      </div>
+    </section>
+
+    <!-- Ejemplo alternativo: SVG inline (permite cambiar el color del trazo/relleno muy fácilmente) -->
+    <section class="card">
+      <h2>Alternativa: SVG inline (cambia fill con CSS)</h2>
+      <!-- SVG inline corregido -->
+      <svg class="svg-color" width="160" height="160" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L15 8l6 1-4.5 4 1 6L12 17l-6.5 2 1-6L2 9l6-1 3-6z" fill="#3b82f6" />
+      </svg>
+      <p>Este SVG cambia su color (fill) al hacer hover.</p>
+    </section>
+
+  </main>
+</body>
+</html>
+
+
